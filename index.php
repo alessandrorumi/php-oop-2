@@ -1,9 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>php-oop-2</title>
+</head>
+<body>
+  
+</body>
+</html>
+
 <?php
 
   class Product {
     private $title;
     private $image;
     private $price;
+    private $category;
 
     public function __construct($title, $image, $price, Category $category) {
       $this->setTitle($title);
@@ -74,10 +88,11 @@
   class Food extends Product {
     private $type;
 
-    public function __construct($title, $image, $price, $type) {
+    public function __construct($title, $image, $price, $type,Category $category) {
       $this->setTitle($title);
       $this->setImage($image);
       $this->setPrice($price);
+      $this->setCategory($category);
 
       $this->setType($type);
     }
@@ -94,10 +109,11 @@
   class Game extends Product {
     private $type;
 
-    public function __construct($title, $image, $price, $type) {
+    public function __construct($title, $image, $price, $type,Category $category) {
       $this->setTitle($title);
       $this->setImage($image);
       $this->setPrice($price);
+      $this->setCategory($category);
 
       $this->setType($type);
     }
@@ -111,13 +127,14 @@
   }
 
   // Cucce (Prodotto)
-  class Doghouse extends Product {
+  class House extends Product {
     private $type;
 
-    public function __construct($title, $image, $price, $type) {
+    public function __construct($title, $image, $price, $type, Category $category) {
       $this->setTitle($title);
       $this->setImage($image);
       $this->setPrice($price);
+      $this->setCategory($category);
 
       $this->setType($type);
     }
@@ -130,18 +147,24 @@
     }
   }
 
-  $category = new Category("Cane", '<i class="fa-solid fa-dog"></i>');
+  $products = [
+    new Food("Crocchette Cane", "image1", "50€", "Cibo", new Category("Cane", '<i class="fa-solid fa-dog"></i>')),
+    new Game("Pallina", "image2", "5€", "Gioco", new Category("Cane", '<i class="fa-solid fa-dog"></i>')),
+    new House("Cuccia Grande", "image3", "30€", "Cuccia", new Category("Gatto", '<i class="fa-solid fa-cat"></i>'))
+  ];
 
-  $product = new Product("Guybrush", "image1", "10€", $category );
-  var_dump($product);
-
-  echo "<br>";
-
-  echo "Product: " . $product->getTitle();
-  echo "<br>";
-  echo "Image: " . $product->getImage();
-  echo "<br>";
-  echo "Price: " . $product->getPrice();
-  echo "<br>";
-  echo "Categoria: " . $product->getCategory()->getCategoryName();
+  foreach ($products as $product) {
+    echo "Product: " . $product->getTitle();
+    echo "<br>";
+    echo "Image: " . $product->getImage();
+    echo "<br>";
+    echo "Price: " . $product->getPrice();
+    echo "<br>";
+    echo "Type: " . $product->getType();
+    echo "<br>";
+    echo "Category: " . $product->getCategory()->getCategoryName();
+    echo "<br>";
+    echo "Icon: " . $product->getCategory()->getCategoryIcon();
+    echo "<hr>";
+  }
 ?>
