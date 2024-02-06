@@ -21,9 +21,9 @@
       <div class="card col-md-6 mb-3">
         <div class="card-body text-center">
           <h5 class="card-title">Prodotto: <?php echo $product->getTitle(); ?></h5>
+          <h6 class="card-title">Tipologia: <?php echo $product->getTypology(); ?></h6>
           <p class="card-text">Immagine: <?php echo $product->getImage(); ?></p>
-          <p class="card-text">Prezzo: <?php echo $product->getPrice(); ?></p>
-          <p class="card-text">Tiplogia: <?php echo $product->getType(); ?></p>
+          <p class="card-text">Prezzo: <?php echo $product->getPrice(); ?>€</p>
           <p class="card-text">Categoria: <?php echo $product->getCategory()->getCategoryName(); ?></p>
           <p class="card-text">Icona: <?php echo $product->getCategory()->getCategoryIcon(); ?></p>
         </div>

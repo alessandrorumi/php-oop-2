@@ -1,21 +1,27 @@
 <?php
   // Cucce (Prodotto)
   class House extends Product {
-    private $type;
+    private static $typology = "Cuccia";
+    private $size;
 
-    public function __construct($title, $image, $price, $type, Category $category) {
+    public function __construct($title, $image, $price, $size, Category $category) {
       $this->setTitle($title);
       $this->setImage($image);
       $this->setPrice($price);
       $this->setCategory($category);
 
-      $this->setType($type);
+      $this->setSize($size);
     }
 
-    public function getType() {
-      return $this->type;
+    public function getSize() {
+      return $this->size;
     }
-    public function setType($type) {
-      $this->type = $type;
+    public function setSize($size) {
+      $this->size = $size;
+    }
+
+    public function getTypology() {
+
+      return self :: $typology;
     }
   }

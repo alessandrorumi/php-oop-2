@@ -1,9 +1,10 @@
 <?php
   // Gioco (Prodotto)
   class Game extends Product {
+    private static $typology = "Gioco";
     private $type;
 
-    public function __construct($title, $image, $price, $type,Category $category) {
+    public function __construct($title, $image, $price, $type, Category $category) {
       $this->setTitle($title);
       $this->setImage($image);
       $this->setPrice($price);
@@ -17,5 +18,10 @@
     }
     public function setType($type) {
       $this->type = $type;
+    }
+
+    public function getTypology() {
+
+      return self :: $typology;
     }
   }
