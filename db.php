@@ -11,8 +11,13 @@
   $category_cat = new Category("Gatto", '<i class="fa-solid fa-cat"></i>');
 
   // Prodotti
-  $product_croccantini = new Food("Croccantini", "img1", 35, "10/05/2024", $category_cat);
-  $product_cuccia = new House("Cuccia per cani", "img2", 100, "100x45x40", $category_dog);
-  $product_pallina = new Game("Pallina", "img3", 5, "gomma", $category_dog);
-
+  try {
+    $product_croccantini = new Food("Croccantini", "img1", 0, "10/05/2024", $category_cat);
+    $product_cuccia = new House("Cuccia per cani", "img2", 100, "100x45x40", $category_dog);
+    $product_pallina = new Game("Pallina", "img3", 5, "gomma", $category_dog);
+  }
+  catch (Exception $e) {
+    $error_message = 'Errore: ' . $e->getMessage();
+  }
+  
   $products = [$product_croccantini, $product_cuccia, $product_pallina];

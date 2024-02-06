@@ -31,8 +31,10 @@
     public function getPrice() {
       return $this->price;
     }
-    public function setPrice($price)
-    {
+    public function setPrice($price) {
+      if ($price <= 0) {
+        throw new Exception("Il prezzo deve essere > 0");
+      }
       $this->price = $price;
     }
 
