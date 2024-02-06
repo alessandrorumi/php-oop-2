@@ -10,6 +10,10 @@
 <body>
   <?php
     require_once 'Models/products.php';
+    require_once 'Models/category.php';
+    require_once 'Models/food.php';
+    require_once 'Models/game.php';
+    require_once 'Models/house.php';
     require_once 'db.php';
   ?>
   <div class="container d-flex flex-column align-items-center mt-5">
